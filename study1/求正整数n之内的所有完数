@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{	//完数等于因子之和，因子包括质数和1
+	/********** Begin **********/
+    int n,i,j,sum;
+    scanf("%d",&n);
+    for(i = 1;j <= n;i++){
+        sum = 0;
+        //找出i的所有真因子
+        for(j = 1;j <= i/2;j++){
+            if(i % j == 0){
+                sum += j;
+            }
+        }
+        //如果因子和等于这个数，则是完数
+        if(sum == i){
+            printf("%d ",i);
+        }
+    }
+
+   /********** End **********/
+	return 0;
+}
