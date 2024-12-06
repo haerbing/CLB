@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main(){
+     int m,n,gcd,lcm,a,b;
+     scanf("%d %d",&m,&n);
+     a=m;
+     b=n;
+     while(n!=0){
+         int temp = n;
+         n=m % n;
+         m=temp;
+     }
+     gcd = m;
+     lcm = (a*b)/gcd;
+     printf("最大公约数是:%d\n",gcd);
+     printf("最小公倍数是:%d\n",lcm);
+     return 0;
+    
+     
+}
