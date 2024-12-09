@@ -1,0 +1,53 @@
+水仙花数是指一个  位数（通常是三位数）的各个位数字的  次幂之和等于其自身的数。以下是用 C 语言实现输入一个整数 ，并输出小于  的所有水仙花数（每个数后面加逗号）的代码：
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int n;
+    printf("请输入一个整数 n：");
+    scanf("%d", &n);
+
+    int found = 0; // 标记是否找到至少一个水仙花数
+    for (int i = 1; i < n; i++) {
+        int sum = 0, temp = i, digits = 0;
+
+        // 计算数字的位数
+        while (temp > 0) {
+            digits++;
+            temp /= 10;
+        }
+
+        temp = i;
+        // 计算每个位数的 digits 次幂之和
+        while (temp > 0) {
+            int digit = temp % 10;
+            sum += pow(digit, digits);
+            temp /= 10;
+        }
+
+        // 判断是否是水仙花数
+        if (sum == i) {
+            if (found) {
+                printf(",");
+            }
+            printf("%d", i);
+            found = 1;
+        }
+    }
+
+    if (!found) {
+        printf("无水仙花数");
+    }
+
+    printf("\n");
+    return 0;
+}
+代码说明
+
+1. 输入范围：用户可以输入任何正整数 。
+
+2. 位数计算：用 while 循环计算当前数字的位数。
+
+3. 幂次和判断：将每个位的  次幂相加，与原数字比较。
+
+4. 输出格式：找到的水仙花数用逗号分隔；如果没有找到，输出提示“无水仙花数”。
