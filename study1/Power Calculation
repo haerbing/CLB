@@ -1,0 +1,31 @@
+//计算并输出从1到n以内能被5或9整除的自然数的倒数之和。
+#include <stdio.h>
+
+// 函数fun(int n) 计算并输出 n 内所有能被 5 或 9 整除的自然数的倒数之和
+double fun(int n) {
+    double sum = 0.0;
+    for (int i = 1; i <= n; i++) {
+        if (i % 5 == 0 || i % 9 == 0) {
+            sum += 1.0 / i;  // 计算倒数
+        }
+    }
+    return sum;
+}
+
+int main() {
+    int n;
+    printf("请输入一个正整数 n：");
+    scanf("%d", &n);
+
+    double result = fun(n);
+    printf("倒数之和是: %.2lf\n", result);
+
+    return 0;
+}
+//1. 函数 fun(int n)：
+//遍历从 1 到 n 的所有自然数。
+//如果该数能被 5 或 9 整除，就计算其倒数并累加到 sum 中。
+
+//2. main 函数：
+//从键盘读取用户输入的 n。
+//调用 fun(n)，并输出结果。
