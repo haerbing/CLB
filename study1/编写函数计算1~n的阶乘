@@ -1,0 +1,20 @@
+#include <stdio.h>
+// 计算单个数的阶乘
+long long fact(int n) {
+    long long result = 1;
+    for (int i = 1; i <= n; i++) {
+        result *= i;
+        printf ("%d! = %ld\n",i,result);
+    }
+}
+int main() {
+    int n;
+    printf("请输入一个整数 n：");
+    scanf("%d", &n);
+    if (n < 1) {
+        printf("输入的数字必须大于等于 1。\n");
+    } else {
+           fact(n);
+    }
+    return 0;
+}
